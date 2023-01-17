@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  background-color: #f2f0f0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .sub__container {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  padding: 50px;
+  height: 300px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+.container .sub__container .text {
+  margin-bottom: 30px;
+}
+.container .sub__container .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .sub__container .form .text3__sub {
+  font-weight: 300;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+.container .sub__container .form .input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.container .sub__container .form .submit {
+  width: 50%;
+  border-color: rgba(242, 240, 240, 0);
+  color: #ffffff;
+  background-color: black;
+  margin-top: 30px;
+}
+.container .sub__container .form .submit:hover {
+  background-color: #c8c8c8;
+}
+.container .outterButton {
+  margin-top: 20px;
+  height: 40px;
+  border-color: rgba(242, 240, 240, 0);
+  color: #ffffff;
+  background-color: black;
+}
+.container .outterButton:hover {
+  background-color: #c8c8c8;
+}
+
+a {
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+}
+
+.container__msg {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  padding: 50px;
+  height: 300px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+.container__msg .msg {
+  border: 1px solid #eaeaea;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+}
+.container__msg .title {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+.super {
+  background-color: #f2f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */
