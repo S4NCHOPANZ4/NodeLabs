@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <div class="sub__container sub1">
+            <% for(let i = 0; i < members.length; i++) { %>
+                <div class="member">
+                    <h2 class="name"><%= members[i].name %></h2>
+                    <h4 class="email"><%= members[i].email %></h4>
+                </div>
+            <% }%>
+        </div>
+        <div class="sub__container sub2"> 
+            <form action="/api/members/" class="form-add" method="POST">
+                <h2 class="add-title">Add new member</h2>
+                <label  class="sub-title">Name</label>
+                <input type="text" name="name" placeholder="Enter name">
+                <p class="sub-title">Mail</p>
+                <input type="text" name="email" placeholder="Enter Mail">
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+ 
+
+</body>
+</html>
