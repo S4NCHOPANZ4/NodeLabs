@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Recipe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-medium mb-4">New Recipe</h1>
+        <form action="/recipes/edit/delete" method="POST">
+            <div class="text-center">
+                <input type="text" style="display: none;" name="id" id="id"
+                value=<%= recipes.id %>  style="display: none;" required>
+                <input  type="text" style="display: none;" name="name" id="name"
+                value="<%= recipes.name %>" required>
+                <% recipes.ingredient.forEach(ingredient => { %>
+                    <div class="mb-2">
+                        <input type="text" style="display: none;" placeholder="Ingredient" name="ingredient"
+                        value="<%= ingredient.name %>"
+                        >
+                        <input type="text" style="display: none;" placeholder="Quantity" name="quantity"
+                        value="<%= ingredient.quantity %>">
+                    </div>
+                    <% }); %>
+                    <% recipes.instruction.forEach(instruction => { %>
+                        <div class="mb-2">
+                            <input  type="text" style="display: none;" name="instruction" required
+                            value="<%= instruction %>">
+                        </div>
+                    <% }); %>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg" type="submit">Delete</button>
+            </div>
+        </form>
+        <form action="/recipes/edit" method="POST">
+            <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" name="id" id="id"
+            value=<%= recipes.id %>  style="display: none;" required>
+            <div class="mb-4">
+                <label class="block font-medium text-sm mb-2" for="name">Name:</label>
+                <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" name="name" id="name"
+                value="<%= recipes.name %>" required>
+            </div>
+            <div class="mb-4">
+                <label class="block font-medium text-sm mb-2" for="ingredients">Ingredients:</label>
+                <div class="ingredient-group">
+                    <% recipes.ingredient.forEach(ingredient => { %>
+                    <div class="mb-2">
+                        <input type="text" class="border border-gray-400 p-2 rounded-lg w-1/2 mr-2" placeholder="Ingredient" name="ingredient"
+                        value="<%= ingredient.name %>"
+                        >
+                        <input type="text" class="border border-gray-400 p-2 rounded-lg w-1/2" placeholder="Quantity" name="quantity"
+                        value="<%= ingredient.quantity %>">
+                    </div>
+                    <% }); %>
+                </div>
+                <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg" onclick="addIngredient()">Add Ingredient</button>
+            </div>
+            <div class="mb-4">
+                <label class="block font-medium text-sm mb-2">Instructions:</label>
+                <div class="instruction-group">
+                    <% recipes.instruction.forEach(instruction => { %>
+                    <div class="mb-2">
+                        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" name="instruction" required
+                        value="<%= instruction %>">
+                    </div>
+                    <% }); %>
+                </div>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg" type="button" onclick="addInstruction()">Add Instruction</button>
+            </div>
+            <div class="text-center">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addIngredient() {
+            let ingredientGroup = document.querySelector('.ingredient-group');
+            let newIngredient = document.createElement('div');
+            newIngredient.innerHTML = `
+                <div class="mb-2">
+                    <input type="text" class="border border-gray-400 p-2 rounded-lg w-1/2 mr-2" placeholder="Ingredient" name="ingredient">
+                    <input type="text" class="border border-gray-400 p-2 rounded-lg w-1/2" placeholder="Quantity" name="quantity">
+                </div>
+            `;
+            ingredientGroup.appendChild(newIngredient);
+        }
+
+        function addInstruction() {
+            const instructionGroup = document.querySelector('.instruction-group');
+            const newInstruction = document.createElement('div');
+            newInstruction.innerHTML = `
+                <div class="mb-2">
+                    <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" name="instruction" required>
+                </div>
+            `;
+            instructionGroup.appendChild(newInstruction);
+        }
+    </script>
+</body>
+</html>
